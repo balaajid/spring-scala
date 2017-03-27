@@ -24,6 +24,7 @@ import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.MethodDescriptor;
 import java.beans.PropertyDescriptor;
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Comparator;
 import java.util.Map;
@@ -31,7 +32,6 @@ import java.util.TreeMap;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
 
@@ -42,8 +42,10 @@ import org.springframework.util.ReflectionUtils;
  *
  * @author Arjen Poutsma
  */
-class ScalaBeanInfo implements BeanInfo {
-
+class ScalaBeanInfo implements BeanInfo,Serializable {
+	 
+	private static final long serialVersionUID = 8767834268L;
+	
 	private static final Log logger = LogFactory.getLog(ScalaBeanInfo.class);
 
 	private static final String SCALA_SETTER_SUFFIX = "_$eq";
